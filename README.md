@@ -5,15 +5,13 @@ Example of SMEP bypass in Windows 10 1709 for Paged Out.
 
 Vulnerability: Stack based overflow in a third-party driver.
 
-1)Leak ntoskrnl address
-        NtSystemQueryInformation
-2)Setup payload
-    2.1) ROP payload
-        Description of the payload in Paged Out ezine. Offsets of gadgets are in main.c
-    2.2) Payload
-        We are going to elevate our privileges, so our payload is Token Stealer. It is in payload.asm
-3)Trigger vuln
-        DeviceIoControl
+1. **Leak ntoskrnl address**
+    - *NtQuerySystemInformation*
+2. **Setup payload**
+    - *ROP payload*: Description of the payload is in Paged Out #2 ezine. Offsets of gadgets are in main.c
+    - *Payload*: We want to elevate our privileges, so our payload is Token Stealer. It is in payload.asm
+3. **Trigger vuln**
+    - *DeviceIoControl*
 
 # Important
 
