@@ -1,5 +1,5 @@
 # WindowsSMEPBypass
-Example of SMEP bypass in Windows 10 1709 for Paged Out.
+Example of SMEP bypass in Windows 10 1709 x64 for Paged Out.
 
 # Brief description
 
