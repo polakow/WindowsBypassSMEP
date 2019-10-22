@@ -25,7 +25,14 @@ Vulnerability: Stack based overflow in a third-party driver.
 						
 		
 		
-
+	(1) ntoskrnlBase + 0xdb8f = **nt!AuthzBasepRemoveSecurityAttributeValueFromLists**+0x7b
+	
+	(2) ntoskrnlBase + 0x2bb1f = **nt!MiGetSubsectionDriverProtos**+0xb
+	
+	(3) ntoskrnlBase + 0x0a3dc3 = **nt!MiGetPteAddress**+0xf
+	
+	(4) ntoskrnlBase + 0x76a02 = **nt!KiFlushCurrentTbWorker**+0x12
+	
     - *Payload*: We want to elevate our privileges, so our payload is Token Stealer. It is in payload.asm
 3. **Trigger vuln**
     - *DeviceIoControl*
