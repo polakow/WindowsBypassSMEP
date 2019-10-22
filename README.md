@@ -33,6 +33,8 @@ Vulnerability: Stack based overflow in a third-party driver.
 	
 	(4) ntoskrnlBase + 0x76a02 = **nt!KiFlushCurrentTbWorker**+0x12
 	
+	(5) ntoskrnlBase + 0xdb90 = **nt!AuthzBasepRemoveSecurityAttributeValueFromLists**+0x7c
+	
     - *Payload*: We want to elevate our privileges, so our payload is Token Stealer. It is in payload.asm
 3. **Trigger vuln**
     - *DeviceIoControl*
